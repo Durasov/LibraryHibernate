@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="Enity.BookEntity" table="book" schema="public" catalog="libraryBase">
+        <id name="idB">
+            <column name="id_b" sql-type="integer"/>
+        </id>
+        <property name="nameB">
+            <column name="name_b" sql-type="varchar(60)" length="60" not-null="true"/>
+        </property>
+        <many-to-one name="bookshelfByIdBs" class="Enity.BookshelfEntity">
+            <column name="id_bs" not-null="true"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>
