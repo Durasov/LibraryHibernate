@@ -4,7 +4,7 @@
     "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
 
-    <class name="Enity.BookshelfEntity" table="bookshelf" schema="public" catalog="libraryBase">
+    <class name="entity.BookshelfEntity" table="bookshelf" schema="public" catalog="libraryBase">
         <id name="idBs">
             <column name="id_bs" sql-type="integer"/>
         </id>
@@ -15,7 +15,7 @@
             <key>
                 <column name="id_bs" not-null="true"/>
             </key>
-            <one-to-many not-found="ignore" class="Enity.BookEntity"/>
+            <one-to-many not-found="ignore" class="entity.BookEntity"/>
         </set>
     </class>
 </hibernate-mapping>

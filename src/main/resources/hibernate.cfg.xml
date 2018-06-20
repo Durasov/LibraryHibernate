@@ -7,12 +7,17 @@
         <property name="connection.url">jdbc:postgresql://localhost:5432/libraryBase</property>
         <property name="connection.driver_class">org.postgresql.Driver</property>
         <property name="connection.username">postgres</property>
-        <property name="connection.password">1234 </property>
-        <mapping class="Enity.BookEntity"/>
-        <mapping resource="BookEntity.hbm.xml"/>
-        <mapping class="Enity.BookshelfEntity"/>
-        <mapping resource="BookshelfEntity.hbm.xml"/>
+        <property name="connection.password">home060658</property>
 
+        <property name="hibernate.hbm2ddl.auto">validate</property>
+        <property name="show_sql">true</property>
+        <property name="format_sql">false</property>
+        <property name="hibernate.current_session_context_class">thread</property>
+        <property name="hibernate.jdbc.batch_size">20</property>
+
+        <mapping package="entity"/>
+        <mapping class="entity.BookEntity"/>
+        <mapping class="entity.BookshelfEntity"/>
         <!-- <property name="connection.password"/> -->
 
         <!-- DB schema will be updated if needed -->

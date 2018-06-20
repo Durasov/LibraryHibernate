@@ -1,15 +1,18 @@
-package Enity;
+package entity;
 
 import javax.persistence.*;
 
+@SequenceGenerator(name = "seqPK", sequenceName = "seqPK")
 @Entity
 @Table(name = "book", schema = "public", catalog = "libraryBase")
 public class BookEntity {
     private int idB;
     private String nameB;
     private BookshelfEntity bookshelfByIdBs;
+    private int idBs;
 
     @Id
+    @GeneratedValue(generator = "seqPK")
     @Column(name = "id_b", nullable = false)
     public int getIdB() {
         return idB;
