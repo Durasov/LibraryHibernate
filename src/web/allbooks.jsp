@@ -31,12 +31,12 @@
     <th></th>
     </thead>
     <tbody>
-    <c:forEach items="${books}" var="book">
+    <c:forEach items="${allbooks}" var="book">
     <tr>
         <td>${book.nameB}
         </td>
         <td><a href="/editTeam?teamId=${book.idB}">Изменить</a></td>
-        <td><a href="/deleteTeam?teamId=${book.idB}">Удалить</a></td>
+        <td><a href="/deleteBook?idB=${book.idB}">Удалить</a></td>
     </tr>
     </tbody>
     </c:forEach>

@@ -3,25 +3,24 @@ package servlets.books;
 import dao.BookDAO;
 import dao.BookDAO1;
 import dao.impl.BookDAOImpl;
+import entity.BookEntity;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.List;
 
-@WebServlet("/deleteBook")
-public class DeleteBookServlet extends HttpServlet {
+@WebServlet("/allbooks")
+public class AllBooksListServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        HttpSession session = req.getSession();
         BookDAO bookDAO = new BookDAOImpl();
-        if (req.getParameter("idB") != null) {
-            int idB = Integer.parseInt(req.getParameter("idB"));
-            bookDAO.deleteBook(idB);
-        }
-        resp.sendRedirect("allbooks");
+        List<BookEntity> bookEntities = bookDAO.getAllBooks();
+        req.getSession().setAttribute("allbooks", bookEntities);
+        req.getRequestDispatcher("allbooks.jsp").forward(req,resp);
+
     }
 }

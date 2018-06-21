@@ -6,6 +6,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
+import org.hibernate.query.Query;
 
 import java.util.List;
 
@@ -27,6 +28,17 @@ public class BookshelfDAOImpl implements BookshelfDAO {
         Transaction tx = session.beginTransaction();
         String hql = "from BookshelfEntity";
         List<BookshelfEntity> bookshelfEntities = session.createQuery(hql).list();
+        session.close();
+        return bookshelfEntities;
+    }
+
+    public List<BookshelfEntity> getBookshelfs(String name) {
+        Session session = createHibernateSession();
+        Transaction tx = session.beginTransaction();
+        Query query = session.createQuery("from BookshelfEntity where nameBs=:param");
+        query.setParameter("param",name);
+        List<BookshelfEntity> bookshelfEntities = query.list();
+        //List<BookshelfEntity> bookshelfEntities = session.createQuery("from BookshelfEntity where nameBs=:param").list();
         session.close();
         return bookshelfEntities;
     }
