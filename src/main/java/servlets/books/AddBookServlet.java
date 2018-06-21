@@ -26,7 +26,6 @@ public class AddBookServlet extends HttpServlet {
         BookshelfDAO bookshelfDAO = new BookshelfDAOImpl();
         List<BookshelfEntity> bookshelfEntityList = bookshelfDAO.getBookshelfs();
         req.getSession().setAttribute("bookshelf", bookshelfEntityList);
-        //req.setAttribute("playersTeam", team);
         req.getRequestDispatcher("addbook.jsp").forward(req, resp);
     }
 
@@ -39,8 +38,7 @@ public class AddBookServlet extends HttpServlet {
         String clientEnc=req.getParameter("charset");
         if(clientEnc==null) clientEnc="Cp1251";
 
-        //Получение параметра
-        String book_name=req.getParameter("book_name");
+        String book_name = req.getParameter("book_name");
         String genre = req.getParameter("genreSelector");
 
         if(book_name!=null && genre!=null) {
@@ -51,11 +49,7 @@ public class AddBookServlet extends HttpServlet {
             BookshelfDAO bookshelfDAO = new BookshelfDAOImpl();
 
             List<BookshelfEntity> bookshelfEntity = bookshelfDAO.getBookshelfs(genre);
-            //bookshelfEntity1 = (BookshelfEntity)bookshelfEntity;
             bookshelfEntity1 = bookshelfEntity.get(0);
-            //bookshelfEntity1.setNameBs(genre);
-            //bookEntity.setBookshelfByIdBs(bookshelfEntity1);
-
             bookDAO.insertBook(book_name,bookshelfEntity1);
             resp.sendRedirect("/allbooks");
         }

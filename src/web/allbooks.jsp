@@ -35,7 +35,7 @@
     <tr>
         <td>${book.nameB}
         </td>
-        <td><a href="/editTeam?teamId=${book.idB}">Изменить</a></td>
+        <td><a href="/editBook?idB=${book.idB}">Изменить</a></td>
         <td><a href="/deleteBook?idB=${book.idB}">Удалить</a></td>
     </tr>
     </tbody>

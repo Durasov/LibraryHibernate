@@ -10,5 +10,6 @@ public interface BookDAO {
     public void insertBook(String name, BookshelfEntity bookshelfEntity);
     public void deleteBook(int idB);
     public List<BookEntity> getBooks(int idB);
+    public List<BookEntity> getBook(int idB);
     public List<BookEntity> getAllBooks();
 }

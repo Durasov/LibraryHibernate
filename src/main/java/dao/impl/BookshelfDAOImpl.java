@@ -38,7 +38,6 @@ public class BookshelfDAOImpl implements BookshelfDAO {
         Query query = session.createQuery("from BookshelfEntity where nameBs=:param");
         query.setParameter("param",name);
         List<BookshelfEntity> bookshelfEntities = query.list();
-        //List<BookshelfEntity> bookshelfEntities = session.createQuery("from BookshelfEntity where nameBs=:param").list();
         session.close();
         return bookshelfEntities;
     }

@@ -6,12 +6,8 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="LibraryHibernate" />
-        <module name="Task" />
+        <module name="1" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="LibraryHibernate" target="1.5" />
-    </bytecodeTargetLevel>
   </component>
 </project>

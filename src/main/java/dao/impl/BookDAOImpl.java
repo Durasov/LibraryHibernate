@@ -47,6 +47,14 @@ public class BookDAOImpl implements BookDAO {
         }
     }
 
+    public void updateBook(int idB,String name, BookshelfEntity bookshelfEntity){
+        Session session = createHibernateSession();
+        Transaction transaction = session.beginTransaction();
+        if(session.createQuery("update BookEntity set nameB=:param, bookshelfByIdBs=:param2 where idB=:param3").setParameter("param",name).setParameter("param2",bookshelfEntity).setParameter("param3",idB).executeUpdate() > 0){
+            transaction.commit();
+        }
+    }
+
     public List<BookEntity> getBooks(int idB) {
         Session session = createHibernateSession();
         Transaction tx = session.beginTransaction();
@@ -65,6 +73,16 @@ public class BookDAOImpl implements BookDAO {
         tx.commit();
         session.close();
         return books;
+    }
+
+    public List<BookEntity> getBook(int idB) {
+        Session session = createHibernateSession();
+        Transaction transaction = session.beginTransaction();
+        Query query = session.createQuery("from BookEntity where idB=:param");
+        query.setParameter("param",idB);
+        List<BookEntity> bookEntities = query.list();
+        session.close();
+        return bookEntities;
     }
 
     public List<BookEntity> getAllBooks(){

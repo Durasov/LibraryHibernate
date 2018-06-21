@@ -1,7 +1,6 @@
 package servlets.books;
 
 import dao.BookDAO;
-import dao.BookDAO1;
 import dao.impl.BookDAOImpl;
 import entity.BookEntity;
 
@@ -17,7 +16,6 @@ import java.util.List;
 public class BooksListServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        BookDAO1 bookDAO1 = new BookDAO1();
         if (req.getParameter("idBs") != null) {
             int idBs = Integer.parseInt(req.getParameter("idBs"));
             BookDAO bookDAO = new BookDAOImpl();

@@ -1,7 +1,6 @@
 package servlets.books;
 
 import dao.BookDAO;
-import dao.BookDAO1;
 import dao.impl.BookDAOImpl;
 import entity.BookEntity;
 
